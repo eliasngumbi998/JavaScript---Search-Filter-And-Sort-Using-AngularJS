@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+	<head>
+		<meta charsert="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css">	
+	</head>
+<body ng-controller="myController">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="<a href="https://eliasngumbipro.com">eliasngumbipro</a>
+" rel="nofollow">https://Eliasngumbipro.com">EliasNgumbipro</a>
+</a>		</div>
+	</nav>
+	<div class="col-md-3"></div>
+	<div class="col-md-6 well">
+		<h3 class="text-primary">JavaScript - Search Filter And Sort Using AngularJS</h3>
+		<hr style="border-top:1px dotted #ccc;"/>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">	
+			<div class="form-inline">
+				<input type="text" class="form-control" ng-model="search" placeholder="Search here..."/>
+			</div>
+			<br />
+			<table class="table table-bordered">
+				<thead class="alert-info">
+					<tr>
+						<th ng-click="sortData('firstname')">Firstname<div ng-class="getSortClass('firstname')"></div></th>
+						<th ng-click="sortData('lastname')">Lastname<div ng-class="getSortClass('lastname')"></div></th>
+						<th ng-click="sortData('gender')">Gender<div ng-class="getSortClass('gender')"></div></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="member in members | orderBy:sortColumn:reverseSort | filter: search">
+						<td>{{member.firstname}}</td>
+						<td>{{member.lastname}}</td>
+						<td>{{member.gender}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>	
+	</div>
+<script src="js/angular.js"></script>
+<script src="js/script.js"></script>	
+</body>	
+</html>
